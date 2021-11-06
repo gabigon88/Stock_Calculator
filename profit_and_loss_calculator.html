@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta id="viewport" content="width=device-width, initial-scale=1">
+  <title>馬鈴薯OHO的股票計算機</title>
+  <link rel="icon" href="potato.png" type="image/x-icon" />
+
+  <!-- Bootstrap CSS -->
+  <link href="bootstrap-5.1.3-dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Bootstrap Bundle with Popper -->
+  <script src="bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- My JavaScript -->
+  <script src="my_js/profit_and_loss_calculator.js"></script>
+</head>
+
+<body style="background-color:#EFEAF1;" onkeydown="keyEvent(event)">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">股票計算機</a>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="nav nav-tabs">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">解套計算</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="profit_and_loss_calculator.html">損益計算</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container" align="center">
+    <h1>損益計算機</h1>
+    <h5>計算買賣損益</h5>
+    <br>
+
+    <div class="row justify-content-center">
+      <div class="col-3">
+        <label for="buy_price">買進的個股成交價:</label>
+        <input type="number" class="form-control" id="buy_price" value="50">
+        <br>
+        <label for="buy_amount">購買股數(一張為1000股):</label>
+        <input type="number" class="form-control" id="buy_amount" value="1000">
+      </div>
+      <div class="col-3">
+        <label for="sell_price">賣出的個股成交價:</label>
+        <input type="number" class="form-control" id="sell_price" value="55">
+        <br>
+        <label for="sell_amount">賣出股數(一張為1000股):</label>
+        <input type="number" class="form-control" id="sell_amount" value="1000">
+      </div>
+
+      <!-- Force next columns to break to new line -->
+      <div class="w-100"><br></div>
+
+      <div class="col-2">
+        <label for="handling_fee_percent">券商手續費折扣</label>
+        <select class="form-select" id="handling_fee_percent">
+          <option value='1'>沒折扣</option>
+          <option value='0.65'>6.5折</option>
+          <option value='0.6' selected>6折</option>
+          <option value='0.5'>5折</option>
+          <option value='0.4'>4折</option>
+          <option value='0.35'>3.5折</option>
+          <option value='0.3'>3折</option>
+          <option value='0.28'>2.8折</option>
+          <option value='0.2'>2折</option>
+        </select>
+      </div>
+
+      <div class="col-2">
+        <label for="lowest_handling_fee">券商單筆最低手續費</label>
+        <input type="number" class="form-control" id="lowest_handling_fee" max="20" min="0" value="20">
+      </div>
+
+      <div class="w-100"><br></div>
+
+      <div class="col-6">
+        <button class="btn btn-primary" onclick="calculate()">Enter立即計算</button>
+      </div>
+
+      <div class="w-100"><br></div>
+
+      <div class="col-3">
+        <label for="buy_total">買入總花費</label>
+        <input type="text" class="form-control" style="color:green;" id="buy_total" disabled>
+      </div>
+
+      <div class="col-3">
+        <label for="sell_total">賣出總獲得</label>
+        <input type="text" class="form-control" style="color:red;" id="sell_total" disabled>
+      </div>
+
+      <div class="w-100"><br></div>
+      
+      <div class="col-3">
+        <label for="profit">獲利</label>
+        <input type="text" class="form-control" id="profit" disabled><br>
+        <label for="profit_percent">獲利率%</label>
+        <input type="text" class="form-control" id="profit_percent" disabled>
+      </div>
+
+      <div class="w-100"><br><br><br></div>
+
+      <div>
+        計算基準為 交易手續費0.1425% , 證券交易稅0.3%
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
