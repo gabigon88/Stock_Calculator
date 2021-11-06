@@ -31,11 +31,8 @@ function calculate() {
   document.getElementById("buy_total").value = buy_total;
   document.getElementById("sell_total").value = sell_total;
 
-  document.cookie = `buy_price=${buy_price}`;
-  document.cookie = `buy_amount=${buy_amount}`;
-  document.cookie = `sell_amount=${sell_amount}`;
-  document.cookie = `handling_fee_percent=${handling_fee_percent}`;
-  document.cookie = `lowest_handling_fee=${lowest_handling_fee}`;
+  document.cookie = `handling_fee_percent=${handling_fee_percent};max-age=${8640000};SameSite=strict`;
+  document.cookie = `lowest_handling_fee=${lowest_handling_fee};max-age=${8640000};SameSite=strict`;
 }
 
 function keyEvent(event) {

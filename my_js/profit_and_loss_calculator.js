@@ -32,6 +32,9 @@ function calculate() {
   document.getElementById("sell_total").value = sell_total;
   document.getElementById("profit").value = profit;
   document.getElementById("profit_percent").value = profit_percent;
+
+  document.cookie = `handling_fee_percent=${handling_fee_percent};max-age=${8640000};SameSite=strict`;
+  document.cookie = `lowest_handling_fee=${lowest_handling_fee};max-age=${8640000};SameSite=strict`;
 }
 
 function keyEvent(event) {
